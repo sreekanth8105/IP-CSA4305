@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Books - Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="brand">Library Management</div>
+
+    <nav>
+        <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('manage_books') }}">Manage Books</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <div class="page-header">
+        <div>
+            <h1>Manage Books</h1>
+            <p>Add, update and remove books from the library.</p>
+        </div>
+    </div>
+
+    <!-- Add New Book -->
+    <section class="panel">
+
+        <h2>Add New Book</h2>
+
+        <form method="POST" class="form-grid">
+
+            <div class="form-group">
+                <label>Book Title</label>
+                <input type="text" name="title" placeholder="Enter book title" required>
+            </div>
+
+            <div class="form-group">
+                <label>Author</label>
+                <input type="text" name="author" placeholder="Enter author name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                <input type="text" name="category" placeholder="e.g. Programming" required>
+            </div>
+
+            <div class="form-group">
+                <label>Year</label>
+                <input type="number" name="year" placeholder="2026" required>
+            </div>
+
+            <div class="form-group">
+                <label>Quantity</label>
+                <input type="number" name="quantity" min="1" placeholder="5" required>
+            </div>
+
+            <div class="form-group form-button">
+                <button type="submit" class="primary-btn">
+                    + Add Book
+                </button>
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <!-- Existing Books -->
+    <section class="panel">
+
+        <h2>Existing Books</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>Year</th>
+                        <th>Available</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for book in books %}
+
+                    <tr>
+
+                        <td>{{ book.id }}</td>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.author }}</td>
+                        <td>{{ book.category }}</td>
+                        <td>{{ book.year }}</td>
+                        <td>{{ book.available }}</td>
+
+                        <td>
+
+                            <form
+                                method="POST"
+                                action="{{ url_for('delete_book', book_id=book.id) }}"
+                                onsubmit="return confirm('Delete this book?');"
+                            >
+
+                                <button type="submit" class="danger-btn">
+                                    Delete
+                                </button>
+
+                            </form>
+
+                        </td>
+
+                    </tr>
+
+                    {% else %}
+
+                    <tr>
+                        <td colspan="7" style="text-align:center;">
+                            No books available.
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>

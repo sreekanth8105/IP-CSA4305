@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | LIBRA</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="login-page">
+
+    <div class="login-container">
+
+        <div class="login-brand">
+
+            <div class="brand-symbol">▣</div>
+
+            <h1>LIBRA</h1>
+
+            <p>Library Management System</p>
+
+        </div>
+
+
+        <div class="login-card">
+
+            <h2>Sign in</h2>
+
+            <p class="muted">
+                Access your library account
+            </p>
+
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+
+                {% for category, message in messages %}
+
+                    <div class="alert {{ category }}">
+                        {{ message }}
+                    </div>
+
+                {% endfor %}
+
+            {% endwith %}
+
+
+            <form method="POST" action="{{ url_for('login') }}">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+
+                <label>Login as</label>
+
+                <select name="role" required>
+
+                    <option value="student">
+                        Student
+                    </option>
+
+                    <option value="admin">
+                        Librarian Admin
+                    </option>
+
+                </select>
+
+
+                <button class="primary-btn full-btn">
+                    Sign In
+                </button>
+
+            </form>
+
+
+            <div class="demo-login">
+
+                <strong>Demo Accounts</strong>
+
+                <p>
+                    Student:
+                    student@libra.com /
+                    student123
+                </p>
+
+                <p>
+                    Admin:
+                    admin@libra.com /
+                    admin123
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

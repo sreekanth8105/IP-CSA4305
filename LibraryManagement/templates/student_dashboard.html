@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | LIBRA</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header class="dashboard-header">
+
+    <div class="logo">
+        ▣ LIBRA
+    </div>
+
+    <nav>
+
+        <a href="{{ url_for('student_dashboard') }}">
+            Dashboard
+        </a>
+
+        <a href="{{ url_for('book_catalog') }}">
+            Books
+        </a>
+
+        <a href="{{ url_for('view_materials') }}">
+            Materials
+        </a>
+
+        <a href="{{ url_for('borrow_history') }}">
+            Borrow History
+        </a>
+
+        <a href="{{ url_for('profile') }}">
+            Profile
+        </a>
+
+        <a href="{{ url_for('logout') }}"
+           class="logout-link">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="dashboard">
+
+    <div class="welcome">
+
+        <div>
+
+            <p class="tag">
+                STUDENT PORTAL
+            </p>
+
+            <h1>
+                Welcome back, {{ user.name }}
+            </h1>
+
+            <p>
+                Search the library, manage your borrowed books
+                and access academic resources.
+            </p>
+
+        </div>
+
+        <a href="{{ url_for('book_catalog') }}"
+           class="primary-btn">
+
+            Search Books →
+
+        </a>
+
+    </div>
+
+
+    <div class="stat-grid">
+
+        <div class="stat-card">
+
+            <span>Borrowed Books</span>
+
+            <strong>
+                {{ borrowed_count }}
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>Outstanding Fine</span>
+
+            <strong>
+                ₹{{ total_fine }}
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>Available Books</span>
+
+            <strong>
+                {{ books|length }}
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <section class="dashboard-section">
+
+        <div class="section-title">
+
+            <div>
+
+                <p class="tag">
+                    LIBRARY COLLECTION
+                </p>
+
+                <h2>Featured Books</h2>
+
+            </div>
+
+            <a href="{{ url_for('book_catalog') }}">
+                View all →
+            </a>
+
+        </div>
+
+
+        <div class="book-grid">
+
+            {% for book in books[:6] %}
+
+            <div class="book-card">
+
+                <div class="book-cover">
+                    {{ book.title[0] }}
+                </div>
+
+                <div>
+
+                    <span class="category">
+                        {{ book.category }}
+                    </span>
+
+                    <h3>
+                        {{ book.title }}
+                    </h3>
+
+                    <p>
+                        {{ book.author }}
+                    </p>
+
+                    <small>
+                        {{ book.available }} available
+                    </small>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+
+</html>

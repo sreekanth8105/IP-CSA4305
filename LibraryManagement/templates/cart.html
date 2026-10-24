@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Requests | LIBRA</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+<header class="dashboard-header">
+
+    <div class="logo">
+        ▣ LIBRA
+    </div>
+
+    <nav>
+
+        <a href="{{ url_for('student_dashboard') }}">
+            Dashboard
+        </a>
+
+        <a href="{{ url_for('book_catalog') }}">
+            Books
+        </a>
+
+        <a href="{{ url_for('request_cart') }}">
+            My Requests
+        </a>
+
+        <a href="{{ url_for('borrow_history') }}">
+            Borrow History
+        </a>
+
+        <a href="{{ url_for('view_materials') }}">
+            Materials
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="dashboard">
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+
+        {% for category, message in messages %}
+
+            <div class="alert {{ category }}">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+
+    {% endwith %}
+
+
+    <div class="page-heading">
+
+        <p class="tag">
+            BOOK REQUESTS
+        </p>
+
+        <h1>My Requests</h1>
+
+        <p>
+            Books requested from the librarian.
+        </p>
+
+    </div>
+
+
+    <div class="request-grid">
+
+        {% for req in requests %}
+
+        <div class="request-card">
+
+            <div class="book-cover">
+                {{ req.book_title[0] }}
+            </div>
+
+
+            <div class="request-content">
+
+                <span class="category">
+                    BOOK REQUEST
+                </span>
+
+                <h3>
+                    {{ req.book_title }}
+                </h3>
+
+                <p>
+                    Requested on {{ req.request_date }}
+                </p>
+
+
+                {% if req.status == "Pending" %}
+
+                    <span class="status status-issued">
+                        Waiting for librarian
+                    </span>
+
+                    <a
+                        href="{{ url_for(
+                            'remove_request',
+                            request_id=req.id
+                        ) }}"
+                        class="delete-btn"
+                    >
+                        Remove
+                    </a>
+
+
+                {% elif req.status == "Issued" %}
+
+                    <span class="status status-returned">
+                        Book Issued
+                    </span>
+
+
+                {% elif req.status == "Rejected" %}
+
+                    <span class="status status-rejected">
+                        Request Rejected
+                    </span>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-box">
+
+            <h3>Your request list is empty</h3>
+
+            <p>
+                Search the library and request a book.
+            </p>
+
+            <a
+                href="{{ url_for('book_catalog') }}"
+                class="primary-btn"
+            >
+                Browse Books
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</main>
+
+</body>
+
+</html>

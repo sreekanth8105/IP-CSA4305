@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Study Materials | LIBRA</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header class="dashboard-header">
+
+    <div class="logo">
+        ▣ LIBRA
+    </div>
+
+    <nav>
+
+        {% if session.get("user_id") == 1 %}
+
+        <a href="{{ url_for('admin_dashboard') }}">
+            Dashboard
+        </a>
+
+        {% else %}
+
+        <a href="{{ url_for('student_dashboard') }}">
+            Dashboard
+        </a>
+
+        {% endif %}
+
+        <a href="{{ url_for('book_catalog') }}">
+            Books
+        </a>
+
+        <a href="{{ url_for('view_materials') }}">
+            Materials
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="dashboard">
+
+    <div class="page-heading">
+
+        <p class="tag">
+            ACADEMIC RESOURCES
+        </p>
+
+        <h1>Study Materials</h1>
+
+        <p>
+            Access useful academic resources and reference materials.
+        </p>
+
+    </div>
+
+
+    <form class="large-search"
+          method="GET"
+          action="{{ url_for('view_materials') }}">
+
+        <input
+            type="text"
+            name="search"
+            value="{{ search }}"
+            placeholder="Search by subject or material..."
+        >
+
+        <button>
+            Search
+        </button>
+
+    </form>
+
+
+    <div class="material-grid">
+
+        {% for material in materials %}
+
+        <div class="material-card">
+
+            <div class="material-icon">
+                PDF
+            </div>
+
+            <div>
+
+                <span class="category">
+                    {{ material.type }}
+                </span>
+
+                <h3>
+                    {{ material.title }}
+                </h3>
+
+                <p>
+                    {{ material.subject }}
+                </p>
+
+                <a
+                    href="{{ material.link }}"
+                    class="small-btn"
+                >
+                    Download
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</main>
+
+</body>
+
+</html>

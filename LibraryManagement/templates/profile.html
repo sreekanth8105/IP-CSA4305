@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | LIBRA</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header class="dashboard-header">
+
+    <div class="logo">
+        ▣ LIBRA
+    </div>
+
+    <nav>
+
+        <a href="{{ url_for('student_dashboard') }}">
+            Dashboard
+        </a>
+
+        <a href="{{ url_for('book_catalog') }}">
+            Books
+        </a>
+
+        <a href="{{ url_for('borrow_history') }}">
+            Borrow History
+        </a>
+
+        <a href="{{ url_for('view_materials') }}">
+            Materials
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="dashboard">
+
+    <div class="page-heading">
+
+        <p class="tag">
+            MY ACCOUNT
+        </p>
+
+        <h1>My Profile</h1>
+
+    </div>
+
+
+    <div class="profile-large">
+
+        <div class="profile-avatar">
+            {{ user.name[0] }}
+        </div>
+
+
+        <div class="profile-details">
+
+            <h2>
+                {{ user.name }}
+            </h2>
+
+            <span class="status status-returned">
+                Active Student
+            </span>
+
+
+            <div class="profile-info">
+
+                <div>
+
+                    <span>Email</span>
+
+                    <strong>
+                        {{ user.email }}
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Account Type</span>
+
+                    <strong>
+                        Student
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+
+</html>

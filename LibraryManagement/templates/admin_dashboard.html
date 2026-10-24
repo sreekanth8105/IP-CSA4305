@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | LIBRA</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<header class="dashboard-header">
+
+    <div class="logo">
+
+        ▣ LIBRA
+
+        <span class="admin-label">
+            ADMIN
+        </span>
+
+    </div>
+
+
+    <nav>
+
+        <a href="{{ url_for('admin_dashboard') }}">
+            Dashboard
+        </a>
+
+        <a href="{{ url_for('manage_books') }}">
+            Manage Books
+        </a>
+
+        <a href="{{ url_for('fines') }}">
+            Fines
+        </a>
+
+        <a href="{{ url_for('view_materials') }}">
+            Materials
+        </a>
+
+        <a href="{{ url_for('logout') }}"
+           class="logout-link">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="dashboard">
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+
+        {% for category, message in messages %}
+
+            <div class="alert {{ category }}">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+
+    {% endwith %}
+
+
+    <!-- HEADER -->
+
+    <div class="welcome">
+
+        <div>
+
+            <p class="tag">
+                LIBRARIAN ADMIN
+            </p>
+
+            <h1>
+                Library Overview
+            </h1>
+
+            <p>
+                Manage books, requests, borrowing and returns.
+            </p>
+
+        </div>
+
+
+        <a
+            href="{{ url_for('manage_books') }}"
+            class="primary-btn"
+        >
+            + Add New Book
+        </a>
+
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <div class="stat-grid">
+
+
+        <div class="stat-card">
+
+            <span>
+                Total Book Copies
+            </span>
+
+            <strong>
+                {{ total_books }}
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                Available Copies
+            </span>
+
+            <strong>
+                {{ available_books }}
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                Currently Issued
+            </span>
+
+            <strong>
+                {{ issued_books }}
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                Total Fines
+            </span>
+
+            <strong>
+                ₹{{ total_fines }}
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         BOOK REQUESTS
+    ========================================== -->
+
+    <section class="dashboard-section">
+
+
+        <div class="section-title">
+
+            <div>
+
+                <p class="tag">
+                    STUDENT REQUESTS
+                </p>
+
+                <h2>
+                    Pending Book Requests
+                </h2>
+
+            </div>
+
+            <span class="request-count">
+                {{ pending_requests|length }} Pending
+            </span>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Student
+                        </th>
+
+                        <th>
+                            Requested Book
+                        </th>
+
+                        <th>
+                            Request Date
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                {% for req in pending_requests %}
+
+                <tr>
+
+
+                    <td>
+
+                        <strong>
+                            {{ req.student_name }}
+                        </strong>
+
+                    </td>
+
+
+                    <td>
+
+                        {{ req.book_title }}
+
+                    </td>
+
+
+                    <td>
+
+                        {{ req.request_date }}
+
+                    </td>
+
+
+                    <td>
+
+                        <span class="status status-issued">
+                            Pending
+                        </span>
+
+                    </td>
+
+
+                    <td>
+
+                        <div class="action-buttons">
+
+
+                            <a
+                                href="{{ url_for(
+                                    'approve_book_request',
+                                    request_id=req.id
+                                ) }}"
+                                class="issue-btn"
+                                onclick="return confirm(
+                                    'Issue this book to the student?'
+                                )"
+                            >
+                                Issue Book
+                            </a>
+
+
+                            <a
+                                href="{{ url_for(
+                                    'reject_book_request',
+                                    request_id=req.id
+                                ) }}"
+                                class="delete-btn"
+                                onclick="return confirm(
+                                    'Reject this request?'
+                                )"
+                            >
+                                Reject
+                            </a>
+
+
+                        </div>
+
+                    </td>
+
+
+                </tr>
+
+
+                {% else %}
+
+                <tr>
+
+                    <td
+                        colspan="5"
+                        class="empty"
+                    >
+
+                        No pending book requests.
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         ISSUED BOOKS
+    ========================================== -->
+
+    <section class="dashboard-section">
+
+
+        <div class="section-title">
+
+            <div>
+
+                <p class="tag">
+                    BORROWING ACTIVITY
+                </p>
+
+                <h2>
+                    Issued Books
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Student
+                        </th>
+
+                        <th>
+                            Book
+                        </th>
+
+                        <th>
+                            Issue Date
+                        </th>
+
+                        <th>
+                            Expected Return
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Fine
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                {% for record in records %}
+
+                <tr>
+
+
+                    <td>
+                        {{ record.student_name }}
+                    </td>
+
+
+                    <td>
+                        {{ record.book_title }}
+                    </td>
+
+
+                    <td>
+                        {{ record.issue_date }}
+                    </td>
+
+
+                    <td>
+                        {{ record.expected_date }}
+                    </td>
+
+
+                    <td>
+
+                        <span class="status
+                        {% if record.status == 'Issued' %}
+                            status-issued
+                        {% else %}
+                            status-returned
+                        {% endif %}">
+
+                            {{ record.status }}
+
+                        </span>
+
+                    </td>
+
+
+                    <td>
+                        ₹{{ record.fine }}
+                    </td>
+
+
+                    <td>
+
+                        {% if record.status == "Issued" %}
+
+                        <a
+                            href="{{ url_for(
+                                'return_book',
+                                record_id=record.id
+                            ) }}"
+                            class="small-btn"
+                        >
+                            Return
+                        </a>
+
+                        {% else %}
+
+                        —
+
+                        {% endif %}
+
+                    </td>
+
+
+                </tr>
+
+
+                {% else %}
+
+                <tr>
+
+                    <td
+                        colspan="7"
+                        class="empty"
+                    >
+
+                        No borrowing records yet.
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+</body>
+
+</html>

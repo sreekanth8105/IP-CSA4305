@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Borrow History | LIBRA</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header class="dashboard-header">
+
+    <div class="logo">
+        ▣ LIBRA
+    </div>
+
+    <nav>
+
+        <a href="{{ url_for('student_dashboard') }}">
+            Dashboard
+        </a>
+
+        <a href="{{ url_for('book_catalog') }}">
+            Books
+        </a>
+
+        <a href="{{ url_for('view_materials') }}">
+            Materials
+        </a>
+
+        <a href="{{ url_for('profile') }}">
+            Profile
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="dashboard">
+
+    <div class="page-heading">
+
+        <p class="tag">
+            MY LIBRARY
+        </p>
+
+        <h1>Borrow History</h1>
+
+        <p>
+            Track books issued to your account and applicable fines.
+        </p>
+
+    </div>
+
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Book</th>
+                    <th>Issue Date</th>
+                    <th>Expected Date</th>
+                    <th>Return Date</th>
+                    <th>Status</th>
+                    <th>Fine</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for record in records %}
+
+                <tr>
+
+                    <td>
+                        {{ record.book_title }}
+                    </td>
+
+                    <td>
+                        {{ record.issue_date }}
+                    </td>
+
+                    <td>
+                        {{ record.expected_date }}
+                    </td>
+
+                    <td>
+                        {{ record.return_date }}
+                    </td>
+
+                    <td>
+
+                        <span class="status
+                        {% if record.status == 'Issued' %}
+                            status-issued
+                        {% else %}
+                            status-returned
+                        {% endif %}">
+
+                            {{ record.status }}
+
+                        </span>
+
+                    </td>
+
+                    <td>
+                        ₹{{ record.fine }}
+                    </td>
+
+                </tr>
+
+            {% else %}
+
+                <tr>
+
+                    <td colspan="6"
+                        class="empty">
+
+                        No borrowing history available.
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</main>
+
+</body>
+
+</html>
