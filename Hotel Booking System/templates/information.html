@@ -1,0 +1,2 @@
+{% extends "base.html" %}{% block title %}{{ info.title }}{% endblock %}
+{% block content %}<section class="narrow info-page"><span class="eyebrow">GRAND HORIZON HOTEL</span><h1>{{ info.title }}</h1><div class="info-content">{{ info.content }}</div><a class="button" href="{{ url_for('rooms') }}">Explore rooms →</a></section>{% endblock %}

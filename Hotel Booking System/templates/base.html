@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Grand Horizon Hotel{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="{{ url_for('index') }}"><span class="brand-mark">GH</span><span>Grand Horizon<small>HOTEL & STAYS</small></span></a>
+  <nav>
+    <a href="{{ url_for('rooms') }}">Rooms</a>
+    <a href="{{ url_for('information', slug='about') }}">About</a>
+    <a href="{{ url_for('information', slug='contact') }}">Contact</a>
+    {% if current_user %}
+      {% if current_user.role == 'admin' %}<a href="{{ url_for('admin_dashboard') }}">Admin</a>{% else %}
+      <a href="{{ url_for('my_bookings') }}">My bookings</a><a href="{{ url_for('profile') }}">Profile</a>{% endif %}
+      <a class="nav-pill" href="{{ url_for('logout') }}">Log out</a>
+    {% else %}
+      <a href="{{ url_for('login') }}">Log in</a><a class="nav-pill" href="{{ url_for('register') }}">Create account</a>
+    {% endif %}
+  </nav>
+</header>
+<main class="page">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}<div class="flash-stack">{% for category,message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+</main>
+<footer class="footer">
+  <div><a class="brand footer-brand" href="{{ url_for('index') }}"><span class="brand-mark">GH</span><span>Grand Horizon<small>HOTEL & STAYS</small></span></a><p>Comfort, considered.</p></div>
+  <div class="footer-links">
+    <a href="{{ url_for('information', slug='rooms_info') }}">Room information</a><a href="{{ url_for('information', slug='faq') }}">FAQs</a>
+    <a href="{{ url_for('information', slug='travel') }}">Travel guide</a><a href="{{ url_for('information', slug='privacy') }}">Privacy policy</a>
+  </div>
+  <small class="copyright">© 2026 Grand Horizon Hotel · Student lab demo</small>
+</footer>
+</body>
+</html>

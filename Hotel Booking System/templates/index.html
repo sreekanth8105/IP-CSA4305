@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Grand Horizon Hotel | Find your stay{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">A BETTER WAY TO STAY</span>
+    <h1>Make room for<br><em>something wonderful.</em></h1>
+    <p>Thoughtfully designed rooms, warm hospitality and a stay that feels effortless from the very first click.</p>
+    <a class="button button-light" href="#find-stay">Find your stay <span>↗</span></a>
+  </div>
+  <div class="hero-note"><span class="sun-symbol">✳</span><span>YOUR NEXT CHAPTER<br><strong>STARTS HERE</strong></span></div>
+</section>
+<section id="find-stay" class="search-panel">
+  <div><span class="eyebrow">PLAN YOUR VISIT</span><h2>Find a room</h2></div>
+  <form action="{{ url_for('rooms') }}" class="search-form">
+    <label>CHECK IN<input name="checkin" type="date" min="{{ today }}" required></label>
+    <label>CHECK OUT<input name="checkout" type="date" min="{{ today }}" required></label>
+    <label>GUESTS<select name="guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+    <button class="button" type="submit">Search rooms →</button>
+  </form>
+</section>
+<section class="section">
+  <div class="section-heading"><div><span class="eyebrow">STAY YOUR WAY</span><h2>Rooms with room to breathe.</h2></div><a class="text-link" href="{{ url_for('rooms') }}">Explore all rooms ↗</a></div>
+  <div class="room-grid">
+  {% for room in rooms %}
+    <article class="room-card">
+      <div class="room-art art-{{ loop.index }}"><span class="art-label">{{ "%02d"|format(loop.index) }} / SIGNATURE STAY</span><span class="art-shape"></span><span class="art-caption">{{ room.name }}</span></div>
+      <div class="room-card-body"><div class="room-title"><h3>{{ room.name }}</h3><strong>₹{{ "{:,.0f}".format(room.price) }}<small> / night</small></strong></div><p>{{ room.description }}</p><a class="text-link" href="{{ url_for('book', room_id=room.id) }}">View and book ↗</a></div>
+    </article>
+  {% endfor %}
+  </div>
+</section>
+<section class="promise">
+  <div><span class="eyebrow">THE GRAND HORIZON DIFFERENCE</span><h2>Little details.<br><em>Lasting memories.</em></h2></div>
+  <div class="promise-item"><span>01</span><div><h3>Easy reservations</h3><p>Find available rooms and manage your booking online.</p></div></div>
+  <div class="promise-item"><span>02</span><div><h3>Comfort comes first</h3><p>Room options designed for solo trips, couples and families.</p></div></div>
+  <div class="promise-item"><span>03</span><div><h3>Here to help</h3><p>Clear information and helpful service whenever you need it.</p></div></div>
+</section>
+{% endblock %}

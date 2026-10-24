@@ -1,0 +1,2 @@
+{% extends "base.html" %}{% block title %}My profile{% endblock %}
+{% block content %}<section class="narrow"><span class="eyebrow">YOUR ACCOUNT</span><h1>Profile settings</h1><form class="form-card" method="post"><label>Full name<input name="name" value="{{ user.name }}" required></label><label>Email address<input value="{{ user.email }}" disabled></label><button class="button" type="submit">Save changes</button></form></section>{% endblock %}
