@@ -1,0 +1,9 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}BusWay{% endblock %}</title><link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"></head><body>
+<header class="topbar"><a class="brand" href="{{ url_for('index') }}"><span class="brand-icon">B</span><span>busway<small>GO BEYOND THE ROUTINE</small></span></a><nav>
+<a href="{{ url_for('index') }}">Find buses</a><a href="{{ url_for('news_page') }}">News</a>
+{% if current_user %}{% if current_user.role=='admin' %}<a href="{{ url_for('admin_dashboard') }}">Admin</a>{% else %}<a href="{{ url_for('my_bookings') }}">My tickets</a><a href="{{ url_for('profile') }}">Profile</a>{% endif %}<a class="nav-cta" href="{{ url_for('logout') }}">Log out</a>
+{% else %}<a href="{{ url_for('login') }}">Log in</a><a class="nav-cta" href="{{ url_for('register') }}">Sign up</a>{% endif %}
+</nav></header><main>
+{% with messages=get_flashed_messages(with_categories=true) %}{% if messages %}<div class="flash-stack">{% for category,message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}{% endwith %}
+{% block content %}{% endblock %}</main><footer><div class="foot-brand"><span class="brand-icon">B</span><div><strong>busway</strong><small>Your journey, made easy.</small></div></div><p>Simple booking. Better journeys. Every day.</p><small>© 2026 BusWay · Student lab demonstration</small></footer></body></html>
