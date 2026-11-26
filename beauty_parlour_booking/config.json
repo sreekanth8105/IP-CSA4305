@@ -1,0 +1,116 @@
+{
+  "title": "Luxe Beauty Studio",
+  "subtitle": "Appointment & Salon Operations",
+  "accent": "#c45b85",
+  "soft": "#fff0f6",
+  "icon": "\u2726",
+  "entity": "Appointment",
+  "plural": "Appointments",
+  "singular": "appointment",
+  "fields": [
+    {
+      "key": "client",
+      "label": "Client name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "service",
+      "label": "Service",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Hair styling",
+        "Facial",
+        "Manicure",
+        "Pedicure",
+        "Bridal makeup",
+        "Hair spa"
+      ]
+    },
+    {
+      "key": "stylist",
+      "label": "Stylist",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "date",
+      "label": "Appointment date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "key": "time",
+      "label": "Time",
+      "type": "time",
+      "required": true
+    },
+    {
+      "key": "phone",
+      "label": "Phone",
+      "type": "tel",
+      "required": true
+    },
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Requested",
+        "Confirmed",
+        "Completed",
+        "Cancelled"
+      ]
+    },
+    {
+      "key": "amount",
+      "label": "Amount (\u20b9)",
+      "type": "number",
+      "required": true
+    }
+  ],
+  "metrics": [
+    "Confirmed",
+    "Requested",
+    "Completed"
+  ],
+  "nav": [
+    "Appointments",
+    "Services",
+    "Stylists"
+  ],
+  "seed": [
+    {
+      "client": "Ananya Rao",
+      "service": "Bridal makeup",
+      "stylist": "Meera",
+      "date": "2026-11-02",
+      "time": "10:30",
+      "phone": "9876543210",
+      "status": "Confirmed",
+      "amount": "4500"
+    },
+    {
+      "client": "Divya S",
+      "service": "Hair spa",
+      "stylist": "Priya",
+      "date": "2026-11-02",
+      "time": "12:00",
+      "phone": "9840012345",
+      "status": "Requested",
+      "amount": "1200"
+    },
+    {
+      "client": "Kavya Nair",
+      "service": "Facial",
+      "stylist": "Meera",
+      "date": "2026-11-03",
+      "time": "15:30",
+      "phone": "9000012345",
+      "status": "Completed",
+      "amount": "1800"
+    }
+  ]
+}

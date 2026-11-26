@@ -1,0 +1,123 @@
+{
+  "title": "ComplainEase",
+  "subtitle": "Service Desk & Resolution Hub",
+  "accent": "#4f46a5",
+  "soft": "#f0efff",
+  "icon": "\u25ce",
+  "entity": "Complaint",
+  "plural": "Complaints",
+  "singular": "complaint",
+  "fields": [
+    {
+      "key": "ticket",
+      "label": "Ticket ID",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "subject",
+      "label": "Subject",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "category",
+      "label": "Category",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Facilities",
+        "IT support",
+        "Academics",
+        "Transport",
+        "Hostel",
+        "Other"
+      ]
+    },
+    {
+      "key": "raised_by",
+      "label": "Raised by",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "assigned_to",
+      "label": "Assigned to",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "created_date",
+      "label": "Date raised",
+      "type": "date",
+      "required": true
+    },
+    {
+      "key": "priority",
+      "label": "Priority",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ]
+    },
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Open",
+        "In progress",
+        "Waiting on user",
+        "Resolved",
+        "Closed"
+      ]
+    }
+  ],
+  "metrics": [
+    "Open",
+    "In progress",
+    "Resolved"
+  ],
+  "nav": [
+    "Tickets",
+    "Teams",
+    "Reports"
+  ],
+  "seed": [
+    {
+      "ticket": "CE-3014",
+      "subject": "Wi-Fi unavailable in Block C",
+      "category": "IT support",
+      "raised_by": "K. Pranav",
+      "assigned_to": "IT Helpdesk",
+      "created_date": "2026-10-28",
+      "priority": "High",
+      "status": "In progress"
+    },
+    {
+      "ticket": "CE-3015",
+      "subject": "Projector not working",
+      "category": "Facilities",
+      "raised_by": "S. Divya",
+      "assigned_to": "Campus Ops",
+      "created_date": "2026-10-29",
+      "priority": "Medium",
+      "status": "Open"
+    },
+    {
+      "ticket": "CE-3016",
+      "subject": "Bus route timing mismatch",
+      "category": "Transport",
+      "raised_by": "R. Naveen",
+      "assigned_to": "Transport Desk",
+      "created_date": "2026-10-27",
+      "priority": "Critical",
+      "status": "Waiting on user"
+    }
+  ]
+}

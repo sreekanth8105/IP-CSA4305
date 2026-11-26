@@ -1,0 +1,122 @@
+{
+  "title": "AgriMart",
+  "subtitle": "Agricultural Supplies Inventory",
+  "accent": "#5b8c26",
+  "soft": "#f3fbe9",
+  "icon": "\u2767",
+  "entity": "Supply item",
+  "plural": "Inventory",
+  "singular": "supply item",
+  "fields": [
+    {
+      "key": "name",
+      "label": "Item name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "category",
+      "label": "Category",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Seeds",
+        "Fertilizers",
+        "Tools",
+        "Irrigation",
+        "Crop protection",
+        "Animal care"
+      ]
+    },
+    {
+      "key": "sku",
+      "label": "SKU",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "unit_price",
+      "label": "Unit price (\u20b9)",
+      "type": "number",
+      "required": true
+    },
+    {
+      "key": "stock",
+      "label": "Available stock",
+      "type": "number",
+      "required": true
+    },
+    {
+      "key": "unit",
+      "label": "Unit",
+      "type": "select",
+      "required": true,
+      "options": [
+        "kg",
+        "litre",
+        "piece",
+        "packet",
+        "bag"
+      ]
+    },
+    {
+      "key": "supplier",
+      "label": "Supplier",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Available",
+        "Low stock",
+        "Out of stock"
+      ]
+    }
+  ],
+  "metrics": [
+    "Available",
+    "Low stock",
+    "Out of stock"
+  ],
+  "nav": [
+    "Inventory",
+    "Orders",
+    "Suppliers"
+  ],
+  "seed": [
+    {
+      "name": "Hybrid tomato seeds",
+      "category": "Seeds",
+      "sku": "SE-1001",
+      "unit_price": "280",
+      "stock": "85",
+      "unit": "packet",
+      "supplier": "GreenGrow Co.",
+      "status": "Available"
+    },
+    {
+      "name": "Organic neem fertilizer",
+      "category": "Fertilizers",
+      "sku": "FE-2204",
+      "unit_price": "450",
+      "stock": "9",
+      "unit": "bag",
+      "supplier": "SoilFirst",
+      "status": "Low stock"
+    },
+    {
+      "name": "Drip irrigation connector",
+      "category": "Irrigation",
+      "sku": "IR-0870",
+      "unit_price": "35",
+      "stock": "0",
+      "unit": "piece",
+      "supplier": "FarmFlow",
+      "status": "Out of stock"
+    }
+  ]
+}
