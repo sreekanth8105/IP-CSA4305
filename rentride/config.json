@@ -1,0 +1,117 @@
+{
+  "title": "RentRide",
+  "subtitle": "Vehicle Rental Operations",
+  "accent": "#ea580c",
+  "soft": "#fff3eb",
+  "icon": "\u279c",
+  "entity": "Rental booking",
+  "plural": "Bookings",
+  "singular": "rental booking",
+  "fields": [
+    {
+      "key": "booking_id",
+      "label": "Booking ID",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "customer",
+      "label": "Customer name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "vehicle",
+      "label": "Vehicle model",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "vehicle_type",
+      "label": "Vehicle type",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Hatchback",
+        "Sedan",
+        "SUV",
+        "Bike",
+        "Scooter",
+        "Van"
+      ]
+    },
+    {
+      "key": "pickup_date",
+      "label": "Pickup date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "key": "return_date",
+      "label": "Return date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "key": "daily_rate",
+      "label": "Daily rate (\u20b9)",
+      "type": "number",
+      "required": true
+    },
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Requested",
+        "Confirmed",
+        "Active",
+        "Completed",
+        "Cancelled"
+      ]
+    }
+  ],
+  "metrics": [
+    "Requested",
+    "Confirmed",
+    "Active"
+  ],
+  "nav": [
+    "Bookings",
+    "Fleet",
+    "Customers"
+  ],
+  "seed": [
+    {
+      "booking_id": "RR-7001",
+      "customer": "Aditya N",
+      "vehicle": "Swift VXi",
+      "vehicle_type": "Hatchback",
+      "pickup_date": "2026-10-30",
+      "return_date": "2026-11-02",
+      "daily_rate": "1800",
+      "status": "Confirmed"
+    },
+    {
+      "booking_id": "RR-7002",
+      "customer": "Pooja R",
+      "vehicle": "Ather 450X",
+      "vehicle_type": "Scooter",
+      "pickup_date": "2026-10-29",
+      "return_date": "2026-10-30",
+      "daily_rate": "650",
+      "status": "Active"
+    },
+    {
+      "booking_id": "RR-7003",
+      "customer": "Hari V",
+      "vehicle": "Hyundai Creta",
+      "vehicle_type": "SUV",
+      "pickup_date": "2026-11-05",
+      "return_date": "2026-11-08",
+      "daily_rate": "3200",
+      "status": "Requested"
+    }
+  ]
+}

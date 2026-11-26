@@ -1,0 +1,123 @@
+{
+  "title": "StyleHub",
+  "subtitle": "Fashion Retail Workspace",
+  "accent": "#7c3aed",
+  "soft": "#f5f0ff",
+  "icon": "\u25c7",
+  "entity": "Catalogue item",
+  "plural": "Catalogue",
+  "singular": "catalogue item",
+  "fields": [
+    {
+      "key": "name",
+      "label": "Item name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "category",
+      "label": "Category",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Tops",
+        "Bottoms",
+        "Outerwear",
+        "Footwear",
+        "Accessories"
+      ]
+    },
+    {
+      "key": "size",
+      "label": "Size",
+      "type": "select",
+      "required": true,
+      "options": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "One size"
+      ]
+    },
+    {
+      "key": "color",
+      "label": "Color",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "price",
+      "label": "Price (\u20b9)",
+      "type": "number",
+      "required": true
+    },
+    {
+      "key": "stock",
+      "label": "Stock",
+      "type": "number",
+      "required": true
+    },
+    {
+      "key": "collection",
+      "label": "Collection",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Active",
+        "Draft",
+        "Archived"
+      ]
+    }
+  ],
+  "metrics": [
+    "Active",
+    "Draft",
+    "Archived"
+  ],
+  "nav": [
+    "Catalogue",
+    "Orders",
+    "Collections"
+  ],
+  "seed": [
+    {
+      "name": "Relaxed Oxford Shirt",
+      "category": "Tops",
+      "size": "L",
+      "color": "Sky blue",
+      "price": "1799",
+      "stock": "22",
+      "collection": "Everyday Edit",
+      "status": "Active"
+    },
+    {
+      "name": "Wide-Leg Denim",
+      "category": "Bottoms",
+      "size": "XL",
+      "color": "Washed black",
+      "price": "2499",
+      "stock": "8",
+      "collection": "Street Form",
+      "status": "Active"
+    },
+    {
+      "name": "Canvas Tote",
+      "category": "Accessories",
+      "size": "One size",
+      "color": "Natural",
+      "price": "699",
+      "stock": "0",
+      "collection": "Essentials",
+      "status": "Draft"
+    }
+  ]
+}

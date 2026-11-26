@@ -1,0 +1,123 @@
+{
+  "title": "ReNew Market",
+  "subtitle": "Pre-loved Marketplace Admin",
+  "accent": "#16846b",
+  "soft": "#e8faf5",
+  "icon": "\u21bb",
+  "entity": "Marketplace listing",
+  "plural": "Listings",
+  "singular": "listing",
+  "fields": [
+    {
+      "key": "title",
+      "label": "Listing title",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "category",
+      "label": "Category",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Electronics",
+        "Books",
+        "Fashion",
+        "Furniture",
+        "Sports",
+        "Other"
+      ]
+    },
+    {
+      "key": "seller",
+      "label": "Seller name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "condition",
+      "label": "Condition",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Like new",
+        "Good",
+        "Fair",
+        "Needs repair"
+      ]
+    },
+    {
+      "key": "price",
+      "label": "Asking price (\u20b9)",
+      "type": "number",
+      "required": true
+    },
+    {
+      "key": "posted_date",
+      "label": "Posted date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "key": "location",
+      "label": "Pickup location",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Pending review",
+        "Published",
+        "Reserved",
+        "Sold",
+        "Rejected"
+      ]
+    }
+  ],
+  "metrics": [
+    "Pending review",
+    "Published",
+    "Sold"
+  ],
+  "nav": [
+    "Listings",
+    "Sellers",
+    "Moderation"
+  ],
+  "seed": [
+    {
+      "title": "Mechanical keyboard",
+      "category": "Electronics",
+      "seller": "Aravind P",
+      "condition": "Good",
+      "price": "2200",
+      "posted_date": "2026-10-27",
+      "location": "T. Nagar, Chennai",
+      "status": "Published"
+    },
+    {
+      "title": "Engineering Mathematics Vol. 2",
+      "category": "Books",
+      "seller": "Nisha K",
+      "condition": "Fair",
+      "price": "350",
+      "posted_date": "2026-10-28",
+      "location": "Velachery, Chennai",
+      "status": "Pending review"
+    },
+    {
+      "title": "Study desk",
+      "category": "Furniture",
+      "seller": "Vikram S",
+      "condition": "Like new",
+      "price": "1800",
+      "posted_date": "2026-10-25",
+      "location": "Porur, Chennai",
+      "status": "Reserved"
+    }
+  ]
+}

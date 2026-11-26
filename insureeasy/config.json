@@ -1,0 +1,115 @@
+{
+  "title": "InsureEasy",
+  "subtitle": "Policy & Claims Management",
+  "accent": "#234b86",
+  "soft": "#edf4ff",
+  "icon": "\u2b21",
+  "entity": "Policy",
+  "plural": "Policies",
+  "singular": "policy",
+  "fields": [
+    {
+      "key": "customer",
+      "label": "Customer name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "policy_no",
+      "label": "Policy number",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "type",
+      "label": "Policy type",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Health",
+        "Life",
+        "Vehicle",
+        "Travel",
+        "Property"
+      ]
+    },
+    {
+      "key": "premium",
+      "label": "Annual premium (\u20b9)",
+      "type": "number",
+      "required": true
+    },
+    {
+      "key": "start_date",
+      "label": "Start date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "key": "renewal_date",
+      "label": "Renewal date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "key": "agent",
+      "label": "Policy agent",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Active",
+        "Renewal due",
+        "Lapsed",
+        "Pending"
+      ]
+    }
+  ],
+  "metrics": [
+    "Active",
+    "Renewal due",
+    "Pending"
+  ],
+  "nav": [
+    "Policies",
+    "Claims",
+    "Customers"
+  ],
+  "seed": [
+    {
+      "customer": "R. Venkatesh",
+      "policy_no": "IE-2026-1042",
+      "type": "Health",
+      "premium": "18500",
+      "start_date": "2026-01-10",
+      "renewal_date": "2027-01-10",
+      "agent": "Asha P",
+      "status": "Active"
+    },
+    {
+      "customer": "M. Priya",
+      "policy_no": "IE-2025-0881",
+      "type": "Vehicle",
+      "premium": "9200",
+      "start_date": "2025-11-03",
+      "renewal_date": "2026-11-03",
+      "agent": "Karthik R",
+      "status": "Renewal due"
+    },
+    {
+      "customer": "S. Hari",
+      "policy_no": "IE-2026-1109",
+      "type": "Life",
+      "premium": "24000",
+      "start_date": "2026-05-12",
+      "renewal_date": "2027-05-12",
+      "agent": "Asha P",
+      "status": "Active"
+    }
+  ]
+}

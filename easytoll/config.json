@@ -1,0 +1,121 @@
+{
+  "title": "EasyToll",
+  "subtitle": "Digital Toll Operations",
+  "accent": "#b7791f",
+  "soft": "#fff8e6",
+  "icon": "\u21c4",
+  "entity": "Toll transaction",
+  "plural": "Transactions",
+  "singular": "toll transaction",
+  "fields": [
+    {
+      "key": "transaction_id",
+      "label": "Transaction ID",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "vehicle_no",
+      "label": "Vehicle number",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "vehicle_type",
+      "label": "Vehicle type",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Car/Jeep",
+        "LCV",
+        "Bus/Truck",
+        "Heavy vehicle",
+        "Two-wheeler"
+      ]
+    },
+    {
+      "key": "plaza",
+      "label": "Toll plaza",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "passage_date",
+      "label": "Passage date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "key": "amount",
+      "label": "Toll amount (\u20b9)",
+      "type": "number",
+      "required": true
+    },
+    {
+      "key": "payment_method",
+      "label": "Payment method",
+      "type": "select",
+      "required": true,
+      "options": [
+        "FASTag",
+        "UPI",
+        "Card",
+        "Cash"
+      ]
+    },
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Paid",
+        "Pending",
+        "Failed",
+        "Refunded"
+      ]
+    }
+  ],
+  "metrics": [
+    "Paid",
+    "Pending",
+    "Failed"
+  ],
+  "nav": [
+    "Transactions",
+    "Vehicles",
+    "Toll plazas"
+  ],
+  "seed": [
+    {
+      "transaction_id": "ET-984102",
+      "vehicle_no": "TN 09 AB 1234",
+      "vehicle_type": "Car/Jeep",
+      "plaza": "Chengalpattu Toll",
+      "passage_date": "2026-10-29",
+      "amount": "60",
+      "payment_method": "FASTag",
+      "status": "Paid"
+    },
+    {
+      "transaction_id": "ET-984103",
+      "vehicle_no": "TN 22 CD 5678",
+      "vehicle_type": "Bus/Truck",
+      "plaza": "Paranur Toll",
+      "passage_date": "2026-10-29",
+      "amount": "180",
+      "payment_method": "UPI",
+      "status": "Pending"
+    },
+    {
+      "transaction_id": "ET-984104",
+      "vehicle_no": "TN 10 EF 9012",
+      "vehicle_type": "Car/Jeep",
+      "plaza": "Chengalpattu Toll",
+      "passage_date": "2026-10-28",
+      "amount": "60",
+      "payment_method": "FASTag",
+      "status": "Failed"
+    }
+  ]
+}

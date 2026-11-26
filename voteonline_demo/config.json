@@ -1,0 +1,114 @@
+{
+  "title": "VoteOnline",
+  "subtitle": "Campus Polling Demonstration",
+  "accent": "#334155",
+  "soft": "#f1f5f9",
+  "icon": "\u25c9",
+  "entity": "Poll",
+  "plural": "Polls",
+  "singular": "poll",
+  "fields": [
+    {
+      "key": "title",
+      "label": "Poll title",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "category",
+      "label": "Category",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Student council",
+        "Events",
+        "Clubs",
+        "Campus life"
+      ]
+    },
+    {
+      "key": "option_a",
+      "label": "Option A",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "option_b",
+      "label": "Option B",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "start_date",
+      "label": "Start date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "key": "end_date",
+      "label": "End date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "key": "eligible_group",
+      "label": "Eligible group",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Draft",
+        "Scheduled",
+        "Open",
+        "Closed"
+      ]
+    }
+  ],
+  "metrics": [
+    "Draft",
+    "Open",
+    "Closed"
+  ],
+  "nav": [
+    "Polls",
+    "Candidates",
+    "Results"
+  ],
+  "seed": [
+    {
+      "title": "Choose the cultural fest theme",
+      "category": "Events",
+      "option_a": "Retro rewind",
+      "option_b": "Neon nights",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-03",
+      "eligible_group": "All students",
+      "status": "Scheduled"
+    },
+    {
+      "title": "Student club priority",
+      "category": "Clubs",
+      "option_a": "Coding club",
+      "option_b": "Design club",
+      "start_date": "2026-10-28",
+      "end_date": "2026-10-30",
+      "eligible_group": "Undergraduate students",
+      "status": "Open"
+    },
+    {
+      "title": "Campus caf\u00e9 feedback poll",
+      "category": "Campus life",
+      "option_a": "More healthy options",
+      "option_b": "More late hours",
+      "start_date": "2026-10-20",
+      "end_date": "2026-10-27",
+      "eligible_group": "All students",
+      "status": "Closed"
+    }
+  ]
+}

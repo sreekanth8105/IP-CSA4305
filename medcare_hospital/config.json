@@ -1,0 +1,120 @@
+{
+  "title": "MedCare Clinic",
+  "subtitle": "Patient & Appointment Portal",
+  "accent": "#087f8c",
+  "soft": "#e8fbfc",
+  "icon": "\u271a",
+  "entity": "Patient visit",
+  "plural": "Patient visits",
+  "singular": "patient visit",
+  "fields": [
+    {
+      "key": "patient",
+      "label": "Patient name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "doctor",
+      "label": "Doctor",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "department",
+      "label": "Department",
+      "type": "select",
+      "required": true,
+      "options": [
+        "General Medicine",
+        "Cardiology",
+        "Dermatology",
+        "Paediatrics",
+        "Orthopaedics"
+      ]
+    },
+    {
+      "key": "visit_date",
+      "label": "Visit date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "key": "visit_time",
+      "label": "Time",
+      "type": "time",
+      "required": true
+    },
+    {
+      "key": "phone",
+      "label": "Contact number",
+      "type": "tel",
+      "required": true
+    },
+    {
+      "key": "priority",
+      "label": "Priority",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Routine",
+        "Urgent",
+        "Emergency"
+      ]
+    },
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Scheduled",
+        "Checked in",
+        "Completed",
+        "Cancelled"
+      ]
+    }
+  ],
+  "metrics": [
+    "Scheduled",
+    "Checked in",
+    "Completed"
+  ],
+  "nav": [
+    "Appointments",
+    "Patients",
+    "Doctors"
+  ],
+  "seed": [
+    {
+      "patient": "Arjun Kumar",
+      "doctor": "Dr. Meena",
+      "department": "General Medicine",
+      "visit_date": "2026-11-01",
+      "visit_time": "09:30",
+      "phone": "9876500001",
+      "priority": "Routine",
+      "status": "Scheduled"
+    },
+    {
+      "patient": "Lakshmi R",
+      "doctor": "Dr. Prakash",
+      "department": "Cardiology",
+      "visit_date": "2026-11-01",
+      "visit_time": "10:00",
+      "phone": "9876500002",
+      "priority": "Urgent",
+      "status": "Checked in"
+    },
+    {
+      "patient": "Nithin S",
+      "doctor": "Dr. Farah",
+      "department": "Dermatology",
+      "visit_date": "2026-11-02",
+      "visit_time": "11:15",
+      "phone": "9876500003",
+      "priority": "Routine",
+      "status": "Scheduled"
+    }
+  ]
+}

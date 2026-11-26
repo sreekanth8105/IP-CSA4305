@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }} · Workspace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar">
+  <a class="brand" href="{{ url_for('index') }}"><span class="brand-mark">{{ icon }}</span><span><b>{{ title }}</b><small>MANAGEMENT SUITE</small></span></a>
+  <div class="workspace-label">WORKSPACE</div>
+  <a class="side-link {{ 'active' if active=='dashboard' else '' }}" href="{{ url_for('index') }}"><span>▦</span> Overview</a>
+  <a class="side-link {{ 'active' if active=='records' else '' }}" href="{{ url_for('records') }}"><span>▤</span> {{ plural }}</a>
+  <a class="side-link" href="{{ url_for('new_record') }}"><span>＋</span> Create new</a>
+  <div class="sidebar-bottom"><div class="profile-avatar">AD</div><div><b>Workspace Admin</b><small>Demo account</small></div><a class="logout" href="{{ url_for('logout') }}" title="Log out">↗</a></div>
+</aside>
+<main class="main-area">
+<header class="topbar"><div class="mobile-brand">{{ icon }} {{ title }}</div><div class="crumb">Workspace <span>/</span> <b>{{ section }}</b></div><div class="top-actions"><span class="live-dot"></span><span class="online-label">Local demo</span><span class="top-avatar">AD</span></div></header>
+<div class="page-content">
+{% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}<div class="flash-stack">{% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}{% endwith %}
+{% block content %}{% endblock %}
+<footer class="footer"><span>{{ title }} · Local workspace</span><span>Educational prototype <b>•</b> Data stored in SQLite</span></footer>
+</div>
+</main></div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>

@@ -1,0 +1,105 @@
+{
+  "title": "TechSavvy",
+  "subtitle": "Electronics Store Console",
+  "accent": "#2563eb",
+  "soft": "#eff6ff",
+  "icon": "\u2301",
+  "entity": "Product",
+  "plural": "Products",
+  "singular": "product",
+  "fields": [
+    {
+      "key": "name",
+      "label": "Product name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "category",
+      "label": "Category",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Laptops",
+        "Mobiles",
+        "Audio",
+        "Accessories",
+        "Smart home"
+      ]
+    },
+    {
+      "key": "sku",
+      "label": "SKU",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "price",
+      "label": "Price (\u20b9)",
+      "type": "number",
+      "required": true
+    },
+    {
+      "key": "stock",
+      "label": "Stock quantity",
+      "type": "number",
+      "required": true
+    },
+    {
+      "key": "supplier",
+      "label": "Supplier",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "required": true,
+      "options": [
+        "In stock",
+        "Low stock",
+        "Out of stock"
+      ]
+    }
+  ],
+  "metrics": [
+    "In stock",
+    "Low stock",
+    "Out of stock"
+  ],
+  "nav": [
+    "Inventory",
+    "Orders",
+    "Customers"
+  ],
+  "seed": [
+    {
+      "name": "NovaBook Air 14",
+      "category": "Laptops",
+      "sku": "NB-1401",
+      "price": "64990",
+      "stock": "12",
+      "supplier": "Nova Systems",
+      "status": "In stock"
+    },
+    {
+      "name": "Pulse Buds Pro",
+      "category": "Audio",
+      "sku": "PB-2208",
+      "price": "4999",
+      "stock": "4",
+      "supplier": "Pulse Audio",
+      "status": "Low stock"
+    },
+    {
+      "name": "Volt 65W Charger",
+      "category": "Accessories",
+      "sku": "VC-0065",
+      "price": "1499",
+      "stock": "0",
+      "supplier": "VoltWorks",
+      "status": "Out of stock"
+    }
+  ]
+}

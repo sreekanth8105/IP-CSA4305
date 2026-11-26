@@ -1,0 +1,117 @@
+{
+  "title": "Blossom & Co.",
+  "subtitle": "Gift Shop Order Studio",
+  "accent": "#d14e72",
+  "soft": "#fff0f4",
+  "icon": "\u2740",
+  "entity": "Gift order",
+  "plural": "Gift orders",
+  "singular": "gift order",
+  "fields": [
+    {
+      "key": "order_no",
+      "label": "Order number",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "customer",
+      "label": "Customer name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "gift",
+      "label": "Gift item",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "occasion",
+      "label": "Occasion",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Birthday",
+        "Anniversary",
+        "Wedding",
+        "Thank you",
+        "Festival",
+        "Other"
+      ]
+    },
+    {
+      "key": "delivery_date",
+      "label": "Delivery date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "key": "amount",
+      "label": "Order total (\u20b9)",
+      "type": "number",
+      "required": true
+    },
+    {
+      "key": "delivery_address",
+      "label": "Delivery address",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "required": true,
+      "options": [
+        "New",
+        "Preparing",
+        "Out for delivery",
+        "Delivered",
+        "Cancelled"
+      ]
+    }
+  ],
+  "metrics": [
+    "New",
+    "Preparing",
+    "Delivered"
+  ],
+  "nav": [
+    "Orders",
+    "Gift catalogue",
+    "Deliveries"
+  ],
+  "seed": [
+    {
+      "order_no": "BG-2401",
+      "customer": "Ishita R",
+      "gift": "Personalised flower box",
+      "occasion": "Birthday",
+      "delivery_date": "2026-11-01",
+      "amount": "1899",
+      "delivery_address": "Anna Nagar, Chennai",
+      "status": "Preparing"
+    },
+    {
+      "order_no": "BG-2402",
+      "customer": "Rohit S",
+      "gift": "Premium chocolate hamper",
+      "occasion": "Anniversary",
+      "delivery_date": "2026-11-02",
+      "amount": "2499",
+      "delivery_address": "Adyar, Chennai",
+      "status": "New"
+    },
+    {
+      "order_no": "BG-2403",
+      "customer": "Maya K",
+      "gift": "Sunrise bouquet",
+      "occasion": "Thank you",
+      "delivery_date": "2026-10-29",
+      "amount": "999",
+      "delivery_address": "Guindy, Chennai",
+      "status": "Out for delivery"
+    }
+  ]
+}

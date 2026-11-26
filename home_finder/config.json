@@ -1,0 +1,115 @@
+{
+  "title": "HomeFinder",
+  "subtitle": "Property Listing Management",
+  "accent": "#16845b",
+  "soft": "#e9fbf2",
+  "icon": "\u2302",
+  "entity": "Property",
+  "plural": "Properties",
+  "singular": "property",
+  "fields": [
+    {
+      "key": "title",
+      "label": "Listing title",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "type",
+      "label": "Property type",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Apartment",
+        "Independent house",
+        "Villa",
+        "Plot",
+        "Commercial"
+      ]
+    },
+    {
+      "key": "location",
+      "label": "Location",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "price",
+      "label": "Price (\u20b9)",
+      "type": "number",
+      "required": true
+    },
+    {
+      "key": "bedrooms",
+      "label": "Bedrooms",
+      "type": "number",
+      "required": true
+    },
+    {
+      "key": "area",
+      "label": "Area (sq.ft.)",
+      "type": "number",
+      "required": true
+    },
+    {
+      "key": "agent",
+      "label": "Assigned agent",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Available",
+        "Under offer",
+        "Sold",
+        "Draft"
+      ]
+    }
+  ],
+  "metrics": [
+    "Available",
+    "Under offer",
+    "Sold"
+  ],
+  "nav": [
+    "Listings",
+    "Leads",
+    "Agents"
+  ],
+  "seed": [
+    {
+      "title": "Sunrise Residency \u00b7 2 BHK",
+      "type": "Apartment",
+      "location": "Velachery, Chennai",
+      "price": "7850000",
+      "bedrooms": "2",
+      "area": "1080",
+      "agent": "Rahul M",
+      "status": "Available"
+    },
+    {
+      "title": "Garden Villa",
+      "type": "Villa",
+      "location": "Medavakkam, Chennai",
+      "price": "14500000",
+      "bedrooms": "3",
+      "area": "2100",
+      "agent": "Sneha K",
+      "status": "Under offer"
+    },
+    {
+      "title": "Corner Plot \u00b7 1200 sq.ft.",
+      "type": "Plot",
+      "location": "Tambaram, Chennai",
+      "price": "4200000",
+      "bedrooms": "0",
+      "area": "1200",
+      "agent": "Rahul M",
+      "status": "Available"
+    }
+  ]
+}
